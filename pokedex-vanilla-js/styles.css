@@ -1,0 +1,28 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+.type {
+  padding: 1em;
+  border-radius: 20px;
+}
+
+.water {
+  background-color: aqua;
+}
+
+.grass {
+  background-color: greenyellow;
+}
+
+.fire {
+  background-color: red;
+}

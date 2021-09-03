@@ -1,0 +1,35 @@
+students = [
+  'Nathan Blaga',
+  'Regan Boff',
+  'Sacha Bucinskas',
+  'Jensen Chow',
+  'Marko Cirkovic',
+  'Robert Dean',
+  'Raymond Doan',
+  'Timothy Dunk',
+  'Chingun Erdene-Ochir',
+  'Andrew Fulton',
+  'Jared Goldstein',
+  'Nicholas Hammond',
+  'Theo Harris',
+  'Brian He',
+  'Sooyeon Jeung',
+  'Grey Joyner',
+  'Aidan Kirvan',
+  'Hayden Kriflik',
+  'Hang Liu',
+  'Jack Martin-McGuire',
+  'Seigo  Miyake',
+  'Victor Patterson Zottmann',
+  'Mathew Polus',
+  'Kathryn Prestridge',
+  'Hashan Pussegoda',
+  'Daniel Quinsey Workman',
+  'Dominique Romijn',
+  'Brendon Singh',
+  'Andrew Strange',
+  'Gleb Tsoy'
+]
+
+students.shuffle.each_with_index { |student, index| puts "#{index + 1}. #{student}" }
+

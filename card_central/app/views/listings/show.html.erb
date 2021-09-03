@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @listing.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+
+<p>
+  <strong>Sold:</strong>
+  <%= @listing.sold %>
+</p>
+
+<% if @listing.photo.attached? %>
+  <p>
+    <strong>Photo:</strong>
+    <%= image_tag @listing.photo %>
+  </p>
+<% end %>
+
+<% if @listing.sold %>
+  <p>Listing already sold!</p>
+<% else %>
+  <% if user_signed_in? %>
+    <button data-stripe="payment">
+    Buy Now!
+    </button>
+  <% else %>
+    <%= button_to "Buy Now!", new_user_registration_path, method: :get %>
+  <% end %>
+<% end %>
+
+
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      )
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      })
+    })
+</script>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
